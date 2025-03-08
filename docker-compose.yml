@@ -1,0 +1,15 @@
+services:  
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    hostname: sqlserver
+    ports:
+      - 1433:1433
+    volumes:
+      - db-data:/var/opt/mssql
+    environment:
+      - MSSQL_SA_PASSWORD=P@$$w0rd
+      - EULA_ACCEPT=Y
+    command: >
+      -n sqlserver
+volumes:
+  db-data:
